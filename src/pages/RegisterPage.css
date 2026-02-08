@@ -1,0 +1,33 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 10px;
+  border: 1px solid #000000;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.boton {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.centrado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.error {
+  color: red;
+}
+
+.correcto {
+  color: green;
+}

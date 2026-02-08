@@ -1,0 +1,10 @@
+.contenedor {
+  margin: 0;
+  display: flex;
+  place-items: center;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}

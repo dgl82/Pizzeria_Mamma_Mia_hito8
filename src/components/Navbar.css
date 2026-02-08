@@ -1,0 +1,42 @@
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: black;
+  color: white;
+  padding: 5px;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.botonesBarra {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 2px;
+  text-decoration: none;
+}
+
+.botonesBarra.activo {
+  background-color: blue;
+  text-decoration: none;
+}
+
+.botonTotal {
+  background-color: black;
+  color: lightblue;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.espaciado {
+  margin: 0 2px;
+}
