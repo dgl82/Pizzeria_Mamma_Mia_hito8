@@ -87,32 +87,3 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
-
-/*const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-    setForm({ email: "", password: "", repetido: "" });
-  };
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repetido, setRepetido] = useState("");
-
-  const handleChange = (e) => {
-  if (e.target.name === "email") {
-       setEmail(e.target.value);
-     }
-     if (e.target.name === "password") {
-       setPassword(e.target.value);
-     }
-     if (e.target.name === "repetido") {
-       setRepetido(e.target.value);
-     }
-   };
-
-   const handleSubmit = (e) => {
-     e.preventDefault();
-     setEmail("");
-     setPassword("");
-     setRepetido("");
-   };*/

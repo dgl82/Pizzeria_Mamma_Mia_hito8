@@ -7,13 +7,11 @@ import CartProvider from "./context/CartContext.jsx";
 import UserProvider, { UserContext } from "./context/UserContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <CartProvider>
-      <UserProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </UserProvider>
-    </CartProvider>
-  </StrictMode>,
+  <CartProvider>
+    <UserProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </UserProvider>
+  </CartProvider>,
 );

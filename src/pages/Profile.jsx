@@ -13,6 +13,7 @@ const Profile = () => {
       <h2>Mi perfil</h2>
       <div>
         <p>Email: {usuario.email}</p>
+        <p>ID: {usuario.id}</p>
       </div>
       <Button onClick={logout}>Logout</Button>
     </div>
