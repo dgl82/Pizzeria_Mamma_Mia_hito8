@@ -7,6 +7,23 @@ const Cart = () => {
   const { cart, total, agregarPizza, quitarPizza } = useContext(CartContext);
   const { user } = useContext(UserContext);
 
+  const pagar = async () => {
+    const token = localStorage.getItem("token");
+    const pagado = await fetch("http://localhost:5000/api/checkouts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        cart: cart,
+      }),
+    });
+    const data = await pagado.json();
+
+    alert(data?.error || data.message);
+  };
+
   return (
     <div className="carro">
       <div className="contenedorDetalle">
@@ -34,7 +51,9 @@ const Cart = () => {
           Total: $: {total.toLocaleString("es-CL")}
         </div>
         <div style={{ margin: "1rem" }}>
-          <Button disabled={!user}>Pagar</Button>
+          <Button disabled={!user} onClick={() => pagar()}>
+            Pagar
+          </Button>
         </div>
       </div>
     </div>
