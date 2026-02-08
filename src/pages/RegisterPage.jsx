@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./RegisterPage.css";
+import { UserContext } from "../context/UserContext";
 
 const RegisterPage = () => {
+  const { Register } = useContext(UserContext);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -76,7 +78,7 @@ const RegisterPage = () => {
         {error.correcto ? (
           <p className="correcto">Usuario creado exitosamente</p>
         ) : null}
-        <button className="boton" type="submit">
+        <button className="boton" type="submit" onClick={() => Register(form)}>
           Registrarse
         </button>
       </form>

@@ -17,17 +17,34 @@ const UserProvider = ({ children }) => {
       }),
     });
     const data = await response.json();
-    alert(data?.error || "Authentication successful!");
+    alert(data?.error || "Authentication exitosa!");
+    localStorage.setItem("token", data.token);
+    setUser(data.email);
+  };
+
+  const Register = async ({ email, password }) => {
+    const response = await fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    const data = await response.json();
+    alert(data?.error || "Registro exitoso!");
     localStorage.setItem("token", data.token);
     setUser(data.email);
   };
 
   const Logout = () => {
-    setUser(false);
+    setUser(null);
   };
 
   return (
-    <UserContext.Provider value={{ user, Logout, Login }}>
+    <UserContext.Provider value={{ user, Logout, Login, Register }}>
       {children}
     </UserContext.Provider>
   );
