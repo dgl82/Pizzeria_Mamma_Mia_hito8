@@ -13,7 +13,7 @@ import Profile from "./pages/Profile";
 import { UserContext } from "./context/UserContext";
 
 function App() {
-  const { token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   return (
     <>
       <Navbar />
@@ -21,17 +21,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/register"
-          element={!token ? <RegisterPage /> : <Navigate to="/" replace />}
+          element={!user ? <RegisterPage /> : <Navigate to="/" replace />}
         />
         <Route
           path="/login"
-          element={!token ? <LoginPage /> : <Navigate to="/" replace />}
+          element={!user ? <LoginPage /> : <Navigate to="/" replace />}
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/pizza/:id" element={<Pizza />} />
         <Route
           path="/profile"
-          element={token ? <Profile /> : <Navigate to="/login" replace />}
+          element={user ? <Profile /> : <Navigate to="/login" replace />}
         />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />

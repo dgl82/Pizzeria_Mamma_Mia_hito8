@@ -63,7 +63,7 @@ const LoginPage = () => {
         {error.correcto ? (
           <p className="correcto">Inicio de sesión exitoso</p>
         ) : null}
-        <button className="boton" type="submit" onClick={Login}>
+        <button className="boton" type="submit" onClick={() => Login(form)}>
           Login
         </button>
       </form>
