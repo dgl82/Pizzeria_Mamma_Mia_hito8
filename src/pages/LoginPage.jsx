@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
 const LoginPage = () => {
-  const { Login } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -63,7 +63,7 @@ const LoginPage = () => {
         {error.correcto ? (
           <p className="correcto">Inicio de sesión exitoso</p>
         ) : null}
-        <button className="boton" type="submit" onClick={() => Login(form)}>
+        <button className="boton" type="submit" onClick={() => login(form)}>
           Login
         </button>
       </form>

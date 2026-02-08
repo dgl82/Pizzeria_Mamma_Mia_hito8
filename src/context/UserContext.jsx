@@ -4,8 +4,9 @@ export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [usuario, setUsuario] = useState("");
 
-  const Login = async ({ email, password }) => {
+  const login = async ({ email, password }) => {
     const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
@@ -22,7 +23,7 @@ const UserProvider = ({ children }) => {
     setUser(data.email);
   };
 
-  const Register = async ({ email, password }) => {
+  const register = async ({ email, password }) => {
     const response = await fetch("http://localhost:5000/api/auth/register", {
       method: "POST",
       headers: {
@@ -39,12 +40,24 @@ const UserProvider = ({ children }) => {
     setUser(data.email);
   };
 
-  const Logout = () => {
+  const pedirUsuario = async () => {
+    const token = localStorage.getItem("token");
+    const response = await fetch("http://localhost:5000/api/auth/me", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const infoUsuario = await response.json();
+    setUsuario(infoUsuario);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
     setUser(null);
   };
 
   return (
-    <UserContext.Provider value={{ user, Logout, Login, Register }}>
+    <UserContext.Provider
+      value={{ user, logout, login, register, usuario, pedirUsuario }}
+    >
       {children}
     </UserContext.Provider>
   );

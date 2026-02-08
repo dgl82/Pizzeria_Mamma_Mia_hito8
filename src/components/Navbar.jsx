@@ -6,7 +6,7 @@ import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
   const { total } = useContext(CartContext);
-  const { user, Logout } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
   const setActiveClass = ({ isActive }) =>
     `botonesBarra espaciado ${isActive ? "activo" : ""}`;
   return (
@@ -17,7 +17,7 @@ const Navbar = () => {
           🍕 Home
         </NavLink>
         {user ? (
-          <NavLink to="/login" className={setActiveClass} onClick={Logout}>
+          <NavLink to="/login" className={setActiveClass} onClick={logout}>
             🔒 Logout
           </NavLink>
         ) : (
